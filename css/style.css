@@ -43,11 +43,19 @@ header {
     position: fixed;
     top: 0;
     width: 100vw;
+    z-index: 1;
 }
 
 .menu a {    
     display: block;
     padding: 10px 20px;
+    transition: background-color 0.5s, color 1s;
+}
+
+.menu a:hover {    
+    background-color: teal ;
+    color: whitesmoke;
+    text-decoration: none;
 }
 
 .menu ul {
@@ -68,6 +76,36 @@ a:hover {
     text-decoration: underline;
 }
 
+.titulo {
+    transform: scale(0.1) translateY(-80vh);
+    opacity: 0;
+
+    animation: ease 2s animacaoTitulo forwards;
+}
+
+@keyframes animacaoTitulo {
+
+    100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+.subtitulo {
+    transform: scale(0.1) translateY(80vh);
+    opacity: 0;
+
+    animation: ease 1s animacaoSubTitulo forwards;
+}
+
+@keyframes animacaoSubTitulo {
+
+    100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
 .site-subtitle,
 .site-title {
     color: whitesmoke;
@@ -85,11 +123,14 @@ a:hover {
     sans-serif;
 }
 
+
+.contato,
 .portfolio {
     padding: 2em;
-    height: 100vh;
+    min-height: 100vh;
 }
 
+.contato,
 .portfolio h2 {
     font-family: 'Give You Glory',
     cursive;
@@ -127,6 +168,12 @@ a:hover {
     height: 180px;
     width: 240px;
     object-fit: cover;
+    transform: scale(1);
+    transition: transform 0.5s;
+}
+
+.img-portfolio:hover {    
+    transform: scale(1.2) rotateZ(5deg);
 }
 
 @media(min-width: 1200px) {
@@ -134,4 +181,20 @@ a:hover {
         height: 10em;
         width: 100%;
     }
+}
+
+.contato a {
+    font-size: 2em;
+    text-shadow: 3px 3px yellow;
+    transition: text-shadow 0.5s;
+}
+
+.contato .icons {
+    text-align: center;
+}
+
+.contato a:active,
+.contato a:hover {
+    text-decoration: none;
+    text-shadow: 0px 0px 10px teal;
 }
